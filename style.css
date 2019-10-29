@@ -1,5 +1,11 @@
 body {
   background-color: #eee;
+  margin: 0;
+}
+
+.wrapper{
+  width: 95%;
+  margin: auto;
 }
 
 .gallery {
@@ -9,6 +15,7 @@ body {
   grid-auto-rows: 10px;
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 .gallery img {
