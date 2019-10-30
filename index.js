@@ -14,9 +14,9 @@ function getHeight(item) {
 }
 
 //! when Resize browser window....... (  for responsive)
-let resizeAll = function() {
+let resizeAll = function() {  
   let gridAutoRows = getCssPropertyValue(gallery, "grid-auto-rows");
-  let gap = getCssPropertyValue(gallery, "grid-gap");
+  let gap = getCssPropertyValue(gallery, "grid-row-gap");
 
   gallery.querySelectorAll(".gallery-item").forEach(item => {
     item.style.gridRowEnd = `span ${Math.ceil( (getHeight(item) + gap) / (gridAutoRows + gap))} `;
@@ -25,11 +25,16 @@ let resizeAll = function() {
 
 gallery.querySelectorAll("img").forEach(img => {
   img.addEventListener("load", function() {
+
     let gridAutoRows = getCssPropertyValue(gallery, "grid-auto-rows");
-    let gap = getCssPropertyValue(gallery, "grid-gap");
+    
+    let gap = getCssPropertyValue(gallery, "grid-row-gap");
+    console.log(gap)
+    ;
     let galleryItem = img.parentElement;
     galleryItem.style.gridRowEnd = `span ${Math.ceil( (getHeight(galleryItem) + gap) / (gridAutoRows + gap))} `;
   });
 });
 
 window.addEventListener("resize", resizeAll);
+
